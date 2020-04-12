@@ -3,7 +3,7 @@ import time
 name="Pan"
 
 x=0
-#name=input("What is your Name: ")
+name=input("What is your Name: ")
 localtime=time.asctime(time.localtime(time.time()))
 print ("Time Log: ", localtime)
 
