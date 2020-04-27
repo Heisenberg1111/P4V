@@ -18,3 +18,32 @@ print("List Length is:",list_len)
 
 del numbers[0]
 print("New List:",numbers,"\nWith Length: " + str(len(numbers)),"\n")
+
+
+#List Methods
+
+# 1. Append() - Append a value to the end of the list
+
+numbers.append(888)
+print("Appended list:",numbers)
+print("Appended List Length:",len(numbers),"\n")
+
+# 2. insert(location, value) - Insert a value at specified location
+
+num_insert=int(input("Enter Number to insert in List Index 1: " ))
+numbers.insert(1,num_insert)
+print("New List with " + str(num_insert)+" inserted:",numbers,"\n")
+
+
+# 3. Initializing an empty list
+
+myList=[]
+myInsert=[]
+
+for i in range(8):
+
+	myList.append(i+1)
+	myInsert.insert(0,i+1)
+
+print(myList)
+print(myInsert)
