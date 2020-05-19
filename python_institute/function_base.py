@@ -1,13 +1,14 @@
 # Creating a function within the script
-
+#
 # Creates a basic function
+#
+# That accepts a single argument
+
+def printMsg(name):
+
+	print("Hello And Welcome", name)
 
 
-def printMsg():
 
-	print("Hello And Welcome")
-
-
-
-
-printMsg()
+x=input("Enter your name: ")
+printMsg(x)
