@@ -1,9 +1,9 @@
 #! /usr/bin/python3
 
-# Addition of LabelsFrame
+# Addition of padding in the GUI and LabelsFrame
 #
 #
-# August 27 2020
+# Nov 24 2020
 
 
 #Command when a button is clicked
@@ -14,6 +14,9 @@ def unClick():
 def clickMe():
 	action.configure(text="Hello "+name.get() +" Queue Number: " + number.get())
 	action.configure(command=unClick)
+
+def closed():
+	win.destroy()
 
 #command when a radio button has been selected
 def radCall():
@@ -46,7 +49,7 @@ bLabel.grid(column=1, row=0)
 #adding an Entry field
 name = tk.StringVar() #This will serve as the holder of the string value to be written on the Entry field
 nameEntry = ttk.Entry(win, width=12, textvariable=name)
-nameEntry.grid(column=0, row=1, sticky=tk.W)
+nameEntry.grid(column=0, row=1, padx=10, pady=10)
 nameEntry.focus() #Place a cursor on the entry box as the GUI is called. No need to manually click on the Entry Field
 # nameEntry.configure(state='disabled') #disable the entry field
 
@@ -89,7 +92,7 @@ rad3.grid(column=2, row=5, sticky=tk.W)
 scrolW=50
 scrolH=5
 scr=scrolledtext.ScrolledText(win, width=scrolW, height=scrolH, wrap=tk.WORD)
-scr.grid(column=0, columnspan=3, sticky='WE')
+scr.grid(column=0, columnspan=3, padx=20, pady=40) # padding is added on the scrolled text entry
 
 #adding a button (action is the object instance of the button)
 action=ttk.Button(win,text="Click Me!", command=clickMe) # Calls the clickMe function when clicked
@@ -98,10 +101,20 @@ action.grid(column=2, row=1)
 
 #adding a labelFrame
 labelsFrame=ttk.LabelFrame(win, text="This is a Label Frame")
-labelsFrame.grid(column=0, row=7)
+#labelFrame position in the GUI with additional padding/spacing information
+labelsFrame.grid(column=0, row=7, padx=20, pady=40)
 
 for i in range(3): # Create 3 Lables within the labels Frame
 	
 	ttk.Label(labelsFrame, text="Col "+str(i+1)+" Label Frame").grid(column=0, row=i)
+
+#adding a button within the labelsFrame object
+
+fButton=ttk.Button(labelsFrame, text="STOP", command=closed)
+fButton.grid(column=0, row=3)
+
+for child in labelsFrame.winfo_children():
+	
+	child.grid_configure(padx=8, pady=4)
 
 win.mainloop()
